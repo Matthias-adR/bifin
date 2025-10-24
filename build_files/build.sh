@@ -20,9 +20,9 @@ dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install dms
 
-dnf5 -y copr enable wef/gtklock
-dnf5 -y copr disable wef/gtklock
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:wef:gtklock install gtklock
+dnf5 -y copr enable z3bra/swaylock-effects
+dnf5 -y copr disable z3bra/swaylock-effects
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:z3bra:swaylock-effects install swaylock-effects
 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
