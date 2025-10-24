@@ -7,7 +7,7 @@ This image is built on top of [Bluefin](https://projectbluefin.io) and aims to p
 
 ## Purpose
 
-The Containerfile is built directly off of [`bluefin-dx-nvidia`](https://github.com/ublue-os/bluefin/pkgs/container/bluefin-dx-nvidia).
+The Containerfile is built directly off of [`bluefin-dx-nvidia-open:latest`](https://github.com/ublue-os/bluefin/pkgs/container/bluefin-dx-nvidia-open)
 
 This is my personal image and changes rapidly. 
 
