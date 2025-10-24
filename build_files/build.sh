@@ -21,6 +21,7 @@ dnf5 -y copr disable avengemedia/dms
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install dms
 
 git clone https://github.com/AvengeMedia/DankMaterialShell.git /etc/xdg/quickshell/dms-greeter
+mkdir -p /usr/local/bin
 cp /etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter /usr/local/bin/dms-greeter
 chmod +x /usr/local/bin/dms-greeter
 
