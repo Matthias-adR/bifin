@@ -69,7 +69,12 @@ dnf5 -y install \
      wl-clipboard \
      swaylock \
      swayidle \
-     tuigreet
+     tuigreet \
+     dolphin \
+     adw-gtk3-theme \
+     python3-vdirsyncer \
+     khal \
+     python3-aiohttp-oauthlib
 
 
 # qt stuff
@@ -132,4 +137,22 @@ LATEST_RELEASE_FONT="$(curl "https://api.github.com/repos/subframe7536/maple-fon
 curl -fSsLo "${MAPLE_TMPDIR}/maple.zip" "${LATEST_RELEASE_FONT}"
 unzip "${MAPLE_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono"
 
-echo 'source /usr/share/bifin/shell/pure.bash' | tee -a "/etc/bashrc"
+
+# Fancy
+sed -i -f - /usr/lib/os-release <<EOF
+s|^NAME=.*|NAME=\"Bifin\"|
+s|^PRETTY_NAME=.*|PRETTY_NAME=\"Bifin\"|
+s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"Pibble\"|
+s|^VARIANT_ID=.*|VARIANT_ID=""|
+s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
+s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"${HOME_URL}/issues\"|
+s|^SUPPORT_URL=.*|SUPPORT_URL=\"${HOME_URL}/issues\"|
+s|^CPE_NAME=\".*\"|CPE_NAME=\"cpe:/o:matthias-adr:bifin\"|
+s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"${HOME_URL}\"|
+s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="bifin"|
+
+/^REDHAT_BUGZILLA_PRODUCT=/d
+/^REDHAT_BUGZILLA_PRODUCT_VERSION=/d
+/^REDHAT_SUPPORT_PRODUCT=/d
+/^REDHAT_SUPPORT_PRODUCT_VERSION=/d
+EOF
