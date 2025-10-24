@@ -20,11 +20,6 @@ dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install dms
 
-git clone https://github.com/AvengeMedia/DankMaterialShell.git /etc/xdg/quickshell/dms-greeter
-mkdir -p /usr/local/bin
-cp /etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter /usr/local/bin/dms-greeter
-chmod +x /usr/local/bin/dms-greeter
-
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:scottames:ghostty install ghostty
@@ -48,25 +43,6 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux instal
      qt6-multimedia \
      accountsservice
 
-# dms-greeter
-groupadd -r greeter
-useradd -r -g greeter -d /var/lib/greeter -s /bin/bash -c "System Greeter" greeter
-mkdir -p /var/lib/greeter
-chown greeter:greeter /var/lib/greeter
-
-## Cache directory for DMS-Greeter
-mkdir -p /var/cache/dms-greeter
-chown greeter:greeter /var/cache/dms-greeter
-chmod 750 /var/cache/dms-greeter
-
-usermod -aG greeter $USER
-setfacl -m u:greeter:x ~ ~/.config ~/.local ~/.cache ~/.local/state
-chgrp -R greeter ~/.config/DankMaterialShell ~/.local/state/DankMaterialShell ~/.cache/quickshell
-chmod -R g+rX ~/.config/DankMaterialShell ~/.local/state/DankMaterialShell ~/.cache/quickshell
-ln -sf ~/.config/DankMaterialShell/settings.json /var/cache/dms-greeter/settings.json
-ln -sf ~/.local/state/DankMaterialShell/session.json /var/cache/dms-greeter/session.json
-ln -sf ~/.cache/DankMaterialShell/dms-colors.json /var/cache/dms-greeter/colors.json
-
 
 # gaming stuff
 dnf5 -y install \
@@ -88,7 +64,8 @@ dnf5 -y install \
      udiskie \
      wlsunset \
      xdg-desktop-portal-wlr \
-     wl-clipboard
+     wl-clipboard \
+     niri-lock
 
 
 # qt stuff
