@@ -44,7 +44,6 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux instal
      dgop \
      brightnessctl \
      cava \
-     qt6-multimedia \
      accountsservice
 
 
