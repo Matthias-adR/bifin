@@ -67,6 +67,7 @@ dnf5 -y install \
      xdg-desktop-portal-wlr \
      wl-clipboard \
      swaylock \
+     swayidle \
 
 
 # qt stuff
