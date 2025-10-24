@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -ouex pipefail
+cp -avf /ctx/files/. /
 
 # COPRs, DMS
 dnf5 -y copr enable yalter/niri
