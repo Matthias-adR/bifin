@@ -55,8 +55,6 @@ dnf5 -y install \
      gamescope \
      lutris
 
-systemctl enable --now gamemoded.service
-
 
 # main packages ig lol
 dnf5 -y install \
