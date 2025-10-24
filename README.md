@@ -18,6 +18,8 @@ If you want something designed for general consumption, I suggest using [Zirconi
 Oh well. On Bluefin or Bazzite with GNOME, type `sudo bootc switch ghcr.io/matthias-adr/bifin`.
 This is not intended for general use and may break any time though, be warned.
 
+Niri is not configured by default, you'll need to figure that out in order to automatically start DMS.
+
 ## Credits
 
 The folks over at Fedora and Bluefin are wonderful people. :D
