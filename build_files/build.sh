@@ -139,6 +139,9 @@ unzip "${MAPLE_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono"
 
 
 # Fancy
+HOME_URL="https://github.com/matthias-adr/bifin"
+echo "bifin" | tee "/etc/hostname"
+
 sed -i -f - /usr/lib/os-release <<EOF
 s|^NAME=.*|NAME=\"Bifin\"|
 s|^PRETTY_NAME=.*|PRETTY_NAME=\"Bifin\"|
