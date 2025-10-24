@@ -8,15 +8,15 @@ dnf5 -y copr disable yalter/niri
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri install niri
 rm -rf /usr/share/doc/niri
 
+dnf5 -y copr enable errornointernet/quickshell
+dnf5 -y copr disable errornointernet/quickshell
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:errornointernet:quickshell install quickshell
+
 dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install \
     dms \
     dms-greeter
-
-dnf5 -y copr enable errornointernet/quickshell
-dnf5 -y copr disable errornointernet/quickshell
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:errornointernet:quickshell install quickshell
 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
