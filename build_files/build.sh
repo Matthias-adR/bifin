@@ -31,6 +31,10 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
     cliphist
 
 mkdir -p /etc/xdg/quickshell
+if [ -d /etc/xdg/quickshell/dms ]; then
+    rm -rf /etc/xdg/quickshell/dms
+fi
+
 git clone https://github.com/AvengeMedia/DankMaterialShell.git /etc/xdg/quickshell/dms
 
 dnf5 -y copr enable avengemedia/danklinux
@@ -128,4 +132,4 @@ LATEST_RELEASE_FONT="$(curl "https://api.github.com/repos/subframe7536/maple-fon
 curl -fSsLo "${MAPLE_TMPDIR}/maple.zip" "${LATEST_RELEASE_FONT}"
 unzip "${MAPLE_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono"
 
-echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
+echo 'source /usr/share/bifin/shell/pure.bash' | tee -a "/etc/bashrc"
