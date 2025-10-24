@@ -91,7 +91,7 @@ add_wants_niri() {
 }
 add_wants_niri noctalia.service
 add_wants_niri plasma-polkit-agent.service
-add_wants_niri swayidle.service
+#
 add_wants_niri udiskie.service
 add_wants_niri xwayland-satellite.service
 cat /usr/lib/systemd/user/niri.service
@@ -102,7 +102,7 @@ systemctl disable gdm
 systemctl enable greetd
 
 systemctl enable --global plasma-polkit-agent.service
-systemctl enable --global swayidle.service
+#systemctl enable --global swayidle.service
 systemctl enable --global udiskie.service
 systemctl enable --global xwayland-satellite.service
 
