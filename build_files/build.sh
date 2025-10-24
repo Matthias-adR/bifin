@@ -103,7 +103,7 @@ systemctl enable greetd
 
 systemctl enable --global plasma-polkit-agent.service
 #systemctl enable --global swayidle.service
-systemctl enable --global udiskie.service
+#systemctl enable --global udiskie.service
 systemctl enable --global xwayland-satellite.service
 
 
