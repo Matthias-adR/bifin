@@ -18,9 +18,11 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:purian23:material-symbols-fo
 
 dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr disable avengemedia/dms
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install \
-    dms \
-    dms-greeter
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install dms
+
+git clone https://github.com/AvengeMedia/DankMaterialShell.git /etc/xdg/quickshell/dms-greeter
+cp /etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter /usr/local/bin/dms-greeter
+chmod +x /usr/local/bin/dms-greeter
 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
