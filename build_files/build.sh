@@ -20,10 +20,6 @@ dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms install dms
 
-dnf5 -y copr enable z3bra/swaylock-effects
-dnf5 -y copr disable z3bra/swaylock-effects
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:z3bra:swaylock-effects install swaylock-effects
-
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:scottames:ghostty install ghostty
@@ -70,6 +66,7 @@ dnf5 -y install \
      wlsunset \
      xdg-desktop-portal-wlr \
      wl-clipboard \
+     swaylock \
 
 
 # qt stuff
