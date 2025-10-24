@@ -69,6 +69,7 @@ dnf5 -y install \
      wl-clipboard \
      swaylock \
      swayidle \
+     tuigreet
 
 
 # qt stuff
