@@ -30,8 +30,12 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
     matugen \
     cliphist
 
+mkdir -p /root/.config/quickshell
 mkdir ~/.config/quickshell && git clone https://github.com/AvengeMedia/DankMaterialShell.git ~/.config/quickshell/dms
 sh -c "curl -L https://github.com/AvengeMedia/danklinux/releases/latest/download/dms-$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').gz | gunzip | tee /usr/local/bin/dms > /dev/null && chmod +x /usr/local/bin/dms"
+curl -L "https://github.com/AvengeMedia/danklinux/releases/latest/download/dms-$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').gz" \
+| gunzip \
+| install -Dm755 /dev/stdin /usr/local/bin/dms
 
 dnf5 -y copr enable avengemedia/danklinux
 dnf5 -y copr disable avengemedia/danklinux
