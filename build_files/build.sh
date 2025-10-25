@@ -73,7 +73,11 @@ dnf5 -y install \
      adw-gtk3-theme \
      python3-vdirsyncer \
      khal \
-     python3-aiohttp-oauthlib
+     python3-aiohttp-oauthlib \
+     kde-connect \
+     kde-connect-libs \
+     kde-connect-nautilus \
+     kdeconnectd
 
 
 # qt stuff
