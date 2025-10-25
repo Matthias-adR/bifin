@@ -63,7 +63,6 @@ dnf5 -y install \
      lutris
 
 ## bazzite repos  
-## bazzite repos  
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite install \
     vkBasalt.x86_64 \
     VK_hdr_layer
@@ -89,7 +88,8 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:webapp-manager i
 dnf5 -y install \
      xone-kmod \
      i2c-tools \
-
+     libcec \
+     umu-launcher
 
 dnf5 -y copr disable bazzite-org/bazzite
 dnf5 -y copr disable bazzite-org/bazzite-multilib
@@ -119,7 +119,10 @@ dnf5 -y install \
      kde-connect-libs \
      kde-connect-nautilus \
      kdeconnectd \
-     uxplay
+     uxplay \
+     input-remapper \
+     v4l-utils \
+     openhmd \
 
 
 # qt stuff
@@ -203,4 +206,9 @@ s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="bifin"|
 /^REDHAT_BUGZILLA_PRODUCT_VERSION=/d
 /^REDHAT_SUPPORT_PRODUCT=/d
 /^REDHAT_SUPPORT_PRODUCT_VERSION=/d
+EOF
+
+cat <<EOF > /etc/sysctl.d/99-bbr.conf
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
 EOF
