@@ -70,7 +70,6 @@ dnf5 -y install \
      swaylock \
      swayidle \
      tuigreet \
-     dolphin \
      adw-gtk3-theme \
      python3-vdirsyncer \
      khal \
