@@ -63,32 +63,38 @@ dnf5 -y install \
      lutris
 
 ## bazzite repos  
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite install \  
-    vkBasalt.x86_64 \  
-    VK_hdr_layer  
-  
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib install \  
-    vkBasalt.i686  
-  
+## bazzite repos  
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite install \
+    vkBasalt.x86_64 \
+    VK_hdr_layer
+
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib install \
+    vkBasalt.i686
+
 ## LatencyFleX 
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:LatencyFleX install \  
-    latencyflex-vulkan-layer  
-  
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:LatencyFleX install \
+    latencyflex-vulkan-layer
+
 ## obs-vkcapture 
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:obs-vkcapture install \  
-    libobs_vkcapture.x86_64 \  
-    libobs_glcapture.x86_64 \  
-    libobs_vkcapture.i686 \  
-    libobs_glcapture.i686  
-  
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:obs-vkcapture install \
+    libobs_vkcapture.x86_64 \
+    libobs_glcapture.x86_64 \
+    libobs_vkcapture.i686 \
+    libobs_glcapture.i686
+
 ## webapp-manager
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:webapp-manager install \  
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:webapp-manager install \
     webapp-manager
 
-dnf5 -y copr disable bazzite-org/bazzite  
-dnf5 -y copr disable bazzite-org/bazzite-multilib  
-dnf5 -y copr disable bazzite-org/LatencyFleX  
-dnf5 -y copr disable bazzite-org/obs-vkcapture  
+dnf5 -y install \
+     xone-kmod \
+     i2c-tools \
+
+
+dnf5 -y copr disable bazzite-org/bazzite
+dnf5 -y copr disable bazzite-org/bazzite-multilib
+dnf5 -y copr disable bazzite-org/LatencyFleX
+dnf5 -y copr disable bazzite-org/obs-vkcapture
 dnf5 -y copr disable bazzite-org/webapp-manager
 
 
