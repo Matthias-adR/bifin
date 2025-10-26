@@ -73,11 +73,8 @@ dnf5 -y install \
      cpulimit \
 
 ## bazzite repos  
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite install \
-    vkBasalt.x86_64 \
-    VK_hdr_layer \
-    sunshine --skip-broken \
-    ryzenadj
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite \
+    --skip-broken install vkBasalt.x86_64 VK_hdr_layer sunshine ryzenadj
 
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib install \
     vkBasalt.i686
