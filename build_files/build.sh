@@ -50,7 +50,8 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux instal
      accountsservice
 
 
-# gaming stuff
+# bazzite stuff
+dnf5 -y copr enable ycollet/audinux
 dnf5 -y copr enable bazzite-org/bazzite  
 dnf5 -y copr enable bazzite-org/bazzite-multilib  
 dnf5 -y copr enable bazzite-org/LatencyFleX  
@@ -59,15 +60,24 @@ dnf5 -y copr enable bazzite-org/webapp-manager
 
 dnf5 -y install \
      steam \
-     gamemode \
      mangohud \
      gamescope \
-     lutris
+     gamescope-libs \
+     lutris \
+     vulkan-tools \
+     gamescope-shaders \
+     python3-pip \
+     python3-icoextract \
+     ds-inhibit \
+     lsb_release \
+     cpulimit \
 
 ## bazzite repos  
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite install \
     vkBasalt.x86_64 \
-    VK_hdr_layer
+    VK_hdr_layer \
+    sunshine \
+    ryzenadj
 
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib install \
     vkBasalt.i686
@@ -101,6 +111,8 @@ dnf5 -y copr disable bazzite-org/webapp-manager
 
 
 # main packages ig lol
+dnf5 -y remove alacritty
+
 dnf5 -y install \
      hyfetch \
      greetd \
@@ -125,7 +137,26 @@ dnf5 -y install \
      input-remapper \
      v4l-utils \
      openhmd \
-     sassc
+     waydroid \
+     libinput-utils \
+     ladspa-caps-plugins \
+     ladspa-noise-suppression-for-voice \
+     pipewire-module-filter-chain-sofa \
+     duperemove \
+     compsize \
+     cage \
+     snapper \
+     btrfs-assistant \
+     rar \
+     lzip
+
+
+# amd stuff
+dnf5 -y install \
+     rocm-hip \
+     rocm-opencl \
+     rocm-clinfo\
+     rocm-smi
 
 
 # qt stuff
@@ -135,6 +166,12 @@ dnf5 -y install --setopt=install_weak_deps=False \
     polkit-kde \
     plasma-breeze \
     kf6-qqc2-desktop-style
+
+
+# vinceliuice mactahoe-gtk-theme
+dnf5 -y install \
+     sassc \
+     glib2-devel
 
 
 # zirconium stuff i yanked
@@ -171,7 +208,8 @@ dnf5 -y install \
     google-noto-color-emoji-fonts \
     google-noto-emoji-fonts \
     glibc-all-langpacks \
-    default-fonts
+    default-fonts \
+    twitter-twemoji-fonts
 
 ## DMS
 curl -L "https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf" -o /usr/share/fonts/MaterialSymbolsRounded.ttf
