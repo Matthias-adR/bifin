@@ -4,9 +4,11 @@ set -ouex pipefail
 cp -avf /ctx/files/. /
 
 # COPRs, DMS
-dnf5 -y copr enable yalter/niri
-dnf5 -y copr disable yalter/niri
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri install niri
+
+dnf -y copr enable yalter/niri-git
+dnf -y copr disable yalter/niri-git
+echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri-git install niri
 rm -rf /usr/share/doc/niri
 
 dnf5 -y copr enable errornointernet/quickshell
