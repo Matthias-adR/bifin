@@ -145,7 +145,8 @@ dnf5 -y install \
      snapper \
      btrfs-assistant \
      rar \
-     lzip
+     lzip \
+     kmenuedit
 
 
 # amd stuff
