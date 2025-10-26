@@ -125,6 +125,7 @@ dnf5 -y install \
      input-remapper \
      v4l-utils \
      openhmd \
+     sassc
 
 
 # qt stuff
