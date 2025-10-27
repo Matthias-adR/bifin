@@ -174,7 +174,7 @@ dnf5 -y install \
 
 # mullvad vpn
 dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-dnf5 -y --enablerepo=mullvad install mullvad-vpn
+dnf5 -y install mullvad-vpn
 dnf5 -y config-manager --set-disabled mullvad
 
 
