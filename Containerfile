@@ -2,7 +2,7 @@ FROM scratch AS ctx
 COPY build_files /
 COPY system_files /files
 
-FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:latest
+FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:beta
 
 RUN rm /opt && mkdir /opt
 
