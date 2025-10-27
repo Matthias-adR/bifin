@@ -81,7 +81,7 @@ dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
 
 ## LatencyFleX 
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:LatencyFleX install \
-    latencyflex-vulkan-layer
+    latencyflex-vulkan-layer --skip-unavailable
 
 ## obs-vkcapture 
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bazzite-org:obs-vkcapture install \
@@ -172,10 +172,10 @@ dnf5 -y install \
      glib2-devel
 
 
-# mullvad vpn
-dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-dnf5 -y --enablerepo=mullvad install mullvad-vpn
-dnf5 -y config-manager --set-disabled mullvad
+# mullvad vpn (disabled for now)
+#dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+#dnf5 -y --enablerepo=mullvad install mullvad-vpn
+#dnf5 -y config-manager --set-disabled mullvad
 
 
 # zirconium stuff i yanked
