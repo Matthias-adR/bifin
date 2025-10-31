@@ -19,9 +19,15 @@ dnf5 -y copr enable purian23/material-symbols-fonts
 dnf5 -y copr disable purian23/material-symbols-fonts
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:purian23:material-symbols-fonts install material-symbols-fonts
 
-dnf5 -y copr enable avengemedia/dms-git
-dnf5 -y copr disable avengemedia/dms-git
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms-git install dms
+dnf -y copr enable avengemedia/dms-git
+dnf -y copr disable avengemedia/dms-git
+dnf -y \
+    --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms-git \
+    --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux \
+    install --setopt=install_weak_deps=False \
+    dms \
+    dms-cli \
+    dgop
 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
@@ -200,6 +206,7 @@ systemctl disable gdm
 systemctl enable greetd
 
 systemctl enable --global plasma-polkit-agent.service
+systemctl enable --global dms.service
 #systemctl enable --global swayidle.service
 #systemctl enable --global udiskie.service
 systemctl enable --global xwayland-satellite.service
