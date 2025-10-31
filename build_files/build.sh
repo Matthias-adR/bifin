@@ -19,6 +19,15 @@ dnf5 -y copr enable purian23/material-symbols-fonts
 dnf5 -y copr disable purian23/material-symbols-fonts
 dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:purian23:material-symbols-fonts install material-symbols-fonts
 
+dnf5 -y copr enable avengemedia/danklinux
+dnf5 -y copr disable avengemedia/danklinux
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install \
+     hyprpicker \
+     dgop \
+     brightnessctl \
+     cava \
+     accountsservice
+
 dnf -y copr enable avengemedia/dms-git
 dnf -y copr disable avengemedia/dms-git
 dnf -y \
@@ -45,15 +54,6 @@ if [ -d /etc/xdg/quickshell/dms ]; then
 fi
 
 git clone https://github.com/AvengeMedia/DankMaterialShell.git /etc/xdg/quickshell/dms
-
-dnf5 -y copr enable avengemedia/danklinux
-dnf5 -y copr disable avengemedia/danklinux
-dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install \
-     hyprpicker \
-     dgop \
-     brightnessctl \
-     cava \
-     accountsservice
 
 
 # bazzite stuff
