@@ -212,6 +212,7 @@ systemctl enable --global dms.service
 systemctl enable --global xwayland-satellite.service
 
 # cachyos kernel
+dnf update
 rm -r -f /usr/lib/modules
 dnf -y copr enable bieszczaders/kernel-cachyos
 dnf -y install kernel-cachyos
