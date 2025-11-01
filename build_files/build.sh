@@ -65,7 +65,6 @@ dnf5 -y copr enable bazzite-org/obs-vkcapture
 dnf5 -y copr enable bazzite-org/webapp-manager
 
 dnf5 -y install \
-     steam \
      mangohud \
      gamescope \
      gamescope-libs \
@@ -212,6 +211,39 @@ systemctl enable --global dms.service
 systemctl enable --global xwayland-satellite.service
 
 
+# cachyos kernel from piperita
+dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+dnf5 -y install steam
+
+for pkg in kernel kernel-core kernel-modules kernel-modules-core; do
+  rpm --erase $pkg --nodeps
+done
+
+dnf5 -y copr enable bieszczaders/kernel-cachyos-lto
+dnf5 -y copr disable bieszczaders/kernel-cachyos-lto
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto install \
+  kernel-cachyos-lto
+
+dnf5 -y copr enable bieszczaders/kernel-cachyos-addons
+dnf5 -y copr disable bieszczaders/kernel-cachyos-addons
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons swap zram-generator-defaults cachyos-settings
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons install \
+  scx-scheds-git \
+  scx-manager
+
+dnf5 -y remove steam
+rm -rf /etc/yum.repos.d/rpmfusion*
+
+tee /etc/modules-load.d/ntsync.conf <<'EOF'
+ntsync
+EOF
+
+KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
+export DRACUT_NO_XATTR=1
+dracut --no-hostonly --kver "$KERNEL_VERSION" --reproducible --zstd -v --add ostree -f "/usr/lib/modules/$KERNEL_VERSION/initramfs.img"
+chmod 0600 "/usr/lib/modules/${KERNEL_VERSION}/initramfs.img"
+
+
 # fonts
 dnf5 -y install \
     default-fonts-core-emoji \
@@ -220,6 +252,8 @@ dnf5 -y install \
     glibc-all-langpacks \
     default-fonts \
     twitter-twemoji-fonts
+
+dnf5 -y install steam
 
 ## DMS
 curl -L "https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf" -o /usr/share/fonts/MaterialSymbolsRounded.ttf
