@@ -36,7 +36,7 @@ dnf -y \
     install --setopt=install_weak_deps=False \
     dms \
     dms-cli \
-    dgop
+    dms-greeter
 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr disable scottames/ghostty
