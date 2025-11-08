@@ -152,7 +152,10 @@ dnf5 -y install \
      btrfs-assistant \
      rar \
      lzip \
-     kmenuedit
+     kmenuedit \
+     dolphin \
+     glycin-thumbnailer \
+     webp-pixbuf-loader
 
 
 # amd stuff
@@ -227,6 +230,14 @@ curl -L "https://github.com/google/material-design-icons/raw/master/variablefont
 curl -L "https://github.com/rsms/inter/raw/refs/tags/v4.1/docs/font-files/InterVariable.ttf" -o /usr/share/fonts/InterVariable.ttf
 curl -L "https://github.com/tonsky/FiraCode/releases/latest/download/FiraCode-Regular.ttf" -o /usr/share/fonts/FiraCode-Regular.ttf
 
+
+## Zirconium's Niri dotfiles
+git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/bifin/zdots
+install -d /etc/niri/
+cp -f /usr/share/bifin/zdots/dot_config/niri/config.kdl /etc/niri/config.kdl
+file /etc/niri/config.kdl | grep -F -e "empty" -v
+stat /etc/niri/config.kdl
+
 ## Maple Mono
 mkdir -p "/usr/share/fonts/Maple_Mono"
 
@@ -245,11 +256,9 @@ echo "bifin" | tee "/etc/hostname"
 sed -i -f - /usr/lib/os-release <<EOF
 s|^NAME=.*|NAME=\"Bifin\"|
 s|^PRETTY_NAME=.*|PRETTY_NAME=\"Bifin\"|
-s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"Pibble\"|
+s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"Posture\"|
 s|^VARIANT_ID=.*|VARIANT_ID=""|
 s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
-s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"${HOME_URL}/issues\"|
-s|^SUPPORT_URL=.*|SUPPORT_URL=\"${HOME_URL}/issues\"|
 s|^CPE_NAME=\".*\"|CPE_NAME=\"cpe:/o:matthias-adr:bifin\"|
 s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"${HOME_URL}\"|
 s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="bifin"|
