@@ -155,7 +155,8 @@ dnf5 -y install \
      kmenuedit \
      dolphin \
      glycin-thumbnailer \
-     webp-pixbuf-loader
+     webp-pixbuf-loader \
+     google-roboto-fonts
 
 
 # amd stuff
