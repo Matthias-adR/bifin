@@ -233,9 +233,10 @@ curl -L "https://github.com/tonsky/FiraCode/releases/latest/download/FiraCode-Re
 
 
 ## Zirconium's Niri dotfiles
-git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/bifin/zdots
+git clone "https://github.com/matthias-adr/bdots.git" /usr/share/bifin/bdots
 install -d /etc/niri/
-cp -f /usr/share/bifin/zdots/dot_config/niri/config.kdl /etc/niri/config.kdl
+cp -rf /usr/share/bifin/zdots/dot_config/niri/* /etc/niri/
+cp -f /usr/share/bifin/bdots/dot_config/niri/config.kdl /etc/niri/config.kdl
 file /etc/niri/config.kdl | grep -F -e "empty" -v
 stat /etc/niri/config.kdl
 
